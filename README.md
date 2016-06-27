@@ -158,7 +158,7 @@ If all built distributions of python and numpy were available, there would be ``
 We've seen that we can build a *lot* of distributions for our simple recipes. We can tighten the build matrix somewhat by adding or own conditions:
 
 ```
-$ conda-build-all my_recipes --matrix-condition "python 3.5.*" "numpy >=1.8"
+$ conda-build-all my_recipes --matrix-conditions "python 3.5.*" "numpy >=1.8"
 Fetching package metadata: ........
 Resolving distributions from 2 recipes... 
 Computed that there are 3 distributions from the 2 recipes:

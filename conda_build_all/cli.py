@@ -2,8 +2,16 @@ import argparse
 import logging
 import os
 
-import conda_build.config
+# HACK -- adding env variable to avoid the error:
+# File ... miniconda2/lib/python2.7/site-packages/conda_build/metadata.py",
+# line 320, in handle_config_version
+# raise RuntimeError("'%s' requires external setting" % ms.spec)
+# RuntimeError: 'numpy x.x' requires external setting
+# See: https://github.com/SciTools/conda-build-all/issues/45
+# has to be added before conda_build.config gets imported
+os.environ["CONDA_NPY"] = "100"
 
+import conda_build.config
 import conda_build_all
 import conda_build_all.builder
 import conda_build_all.artefact_destination as artefact_dest
